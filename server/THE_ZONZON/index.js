@@ -1,9 +1,13 @@
 const TheZonzonServer = (client) => {
+    const serverName = "The Zonzon";
+
+
     client.on('message', msg => {
-        
+        if(msg.author.username === "juliant.33" || msg.author.username === "matutou44"){
+            msg.reply('tg.');
+        };
     })
 
-    return 3;
 }
 
-module.exports = TheZonzonServer;
+module.exports = TheZonzonServer;s

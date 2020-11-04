@@ -7,18 +7,14 @@ const token = process.env.BOT_TOKEN;
 const TheZonzonServer = require('./THE_ZONZON/index');
 
 const startBot = () => {
-    // client.on('message', msg => {
-    //     console.log(msg.guild.name);
-    // })
     
-    // client.on('ready', () => {
-    //     console.log(`Logged in as ${client.user.tag}`);
-    // });
+    client.on('ready', () => {
+        console.log(`Logged in as ${client.user.tag}`);
+    });
 
     TheZonzonServer(client);
     
-    
-     client.login(token);
+    client.login(token);
 }
 
 startBot();
