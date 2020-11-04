@@ -1,26 +1,26 @@
+require('dotenv').config();
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = "NzczNDcxNTg4NTA2MjcxNzc0.X6JtjQ.z6OFUiyEMIO_wUkQNjPM7eIaSlo";
+const token = process.env.BOT_TOKEN;
 
+const TheZonzonServer = require('./THE_ZONZON/index');
 
+const startBot = () => {
+    // client.on('message', msg => {
+    //     console.log(msg.guild.name);
+    // })
+    
+    // client.on('ready', () => {
+    //     console.log(`Logged in as ${client.user.tag}`);
+    // });
 
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}`);
-});
+    TheZonzonServer(client);
+    
+    
+     client.login(token);
+}
 
-client.on('message', msg => {
-    if (msg.content === "ping"){
-        msg.channel.send('Pong.');
-    }
-});
+startBot();
 
-client.on('message', msg => {
-    for (let techno of technos){
-        if (msg.content === '!' + techno.name){
-            msg.react(techno.id);
-        }
-    }
-})
-
-client.login(token);
 
